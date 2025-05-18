@@ -12,7 +12,7 @@ CFILES = $(OPERATIONS_PATH)ft_push.c \
          ft_push_swap_utils.c \
          ft_stack_init.c \
          ft_turk.c \
-         ft_push_swap.c
+         ft_push_swap.c 
 LIBFT_PATH = libft/
 LIBFT_LIB = $(LIBFT_PATH)libft.a
 

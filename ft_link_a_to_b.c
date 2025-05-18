@@ -6,7 +6,7 @@
 /*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 21:42:39 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/11 21:45:45 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:58:58 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    ft_current_index(t_stack_node *stack) //inicializa indices y su valor re
     while (stack)
     {
         stack->index = i;
-        if (i<=median)
+        if (i <= median)
             stack->above_median = true; //si es menor o igual que la mediana significa que esta por encima
         else
             stack->above_median = false; //si es mayor significa que esta por debajo
@@ -37,7 +37,7 @@ void    ft_set_target_a(t_stack_node *a, t_stack_node *b) //linkea a a b
 {
     t_stack_node *current_b; //usaremos esta variable para poder recorrer b en un doble bucle sin que el b de verdad avance
     t_stack_node *target_node; //aqui guardaremos el nodo objetivo
-    long            best_match; //aqui el valor del mas cercano hasta ahora
+    long        best_match; //aqui el valor del mas cercano hasta ahora
 
     while (a)
     {
@@ -71,7 +71,7 @@ static void ft_cost_analysis_a(t_stack_node *a, t_stack_node *b) //consigue el p
     {
         a->push_cost = a->index; //inicializamos el push_cost de 'a' a su indice
         if (!(a->above_median)) //si a no esta por encima de la mediana
-            a->push_cost = len_a - (a->index); //el push_cost sera la longitud del stack menos el indice 
+            a->push_cost = len_a - (a->index); //el push_cost sera la longitud del stack menos el indice
         if (a->target_node->above_median) //si b esta por encima de la mediana (y a tambien)
             a->push_cost += a->target_node->index; //el push_cost sera lo que cueste subir a + lo que cueste subir b, recordar que el top del stack tiene indice 0
         else //a encima de la mediana pero b por debajo
@@ -80,7 +80,7 @@ static void ft_cost_analysis_a(t_stack_node *a, t_stack_node *b) //consigue el p
     }
 }
 
-void    ft_set_cheapest(t_stack_node *stack) //encuentra el push mas barato 
+void    ft_set_cheapest(t_stack_node *stack) //encuentra el push mas barato
 {
     long            cheapest; //valor push_cost mas barato
     t_stack_node    *cheapest_node; //nodo mas barato

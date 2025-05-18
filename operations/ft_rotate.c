@@ -6,7 +6,7 @@
 /*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:50:56 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/05 17:32:44 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:59:56 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void rotate(t_stack_node **stack) //manda el primer elemento al fondo
 {
     t_stack_node    *last_node;
-    if (!*stack || (*stack)->next)
+    if (!*stack || !(*stack)->next)
         return ;
     last_node = find_last(*stack);
     last_node->next = *stack; //el ultimo anterior pasa a apuntar al stack que rotamos como el nuevo ultimo
@@ -25,21 +25,21 @@ static void rotate(t_stack_node **stack) //manda el primer elemento al fondo
     last_node->next->next = NULL; //el nuevo ultimo apunta a null
 }
 
-void    ra(t_stack_node **a, bool print)
+void ra(t_stack_node **a, bool print)
 {
     rotate(a);
     if (!print)
         ft_printf("ra\n");
 }
 
-void    rb(t_stack_node **b, bool print)
+void rb(t_stack_node **b, bool print)
 {
     rotate(b);
     if (!print)
         ft_printf("rb\n");
 }
 
-void    rr(t_stack_node **a, t_stack_node **b, bool print)
+void rr(t_stack_node **a, t_stack_node **b, bool print)
 {
     rotate(a);
     rotate(b);

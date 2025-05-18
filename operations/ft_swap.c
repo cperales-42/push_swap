@@ -6,7 +6,7 @@
 /*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:18:59 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/05 17:32:42 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:59:41 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ static void swap(t_stack_node **head) //cambia el primer y el segundo elemento d
     (*head)->prev = NULL; // el anterior de B es null
 }
 
-void    sa(t_stack_node **a, bool print)
+void sa(t_stack_node **a, bool print)
 {
     swap(a);
     if (!print)
         ft_printf("sa\n");
 }
 
-void    sb(t_stack_node **b, bool print)
+void sb(t_stack_node **b, bool print)
 {
     swap(b);
     if (!print)
         ft_printf("sb\n");
 }
 
-void    ss (t_stack_node **a, t_stack_node **b, bool print)
+void ss(t_stack_node **a, t_stack_node **b, bool print)
 {
     swap(a);
     swap(b);

@@ -36,18 +36,16 @@ static void push(t_stack_node **src, t_stack_node **dst) //pushea de un stack a 
     }
 }
 
-void    pa(t_stack_node **a, t_stack_node **b, bool print) //push a
+void pa(t_stack_node **a, t_stack_node **b, bool print) //push a
 {
-    ft_printf("Hola");
-    push(a, b);
+    push(b, a);
     if (!print)
         ft_printf("pa\n");
 }
 
-void    pb(t_stack_node **b, t_stack_node **a, bool print) // push b
+void pb(t_stack_node **b, t_stack_node **a, bool print) // push b
 {
-    push(b, a);
+    push(a, b);
     if (!print)
         ft_printf("pb\n");
 }
-

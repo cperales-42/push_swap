@@ -11,30 +11,35 @@
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-t_stack_node	*find_last(t_stack_node *stack) //encontrar puntero al ultimo bloque del stack
+
+// encontrar puntero al ultimo bloque del stack
+t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next) //bucle hasta encontrar el ultimo bloque del stack
+	while (stack->next) // bucle hasta encontrar el ultimo bloque
 		stack = stack->next;
 	return (stack);
 }
 
-int	stack_len(t_stack_node *stack) //conseguir la longitud del stack
+// conseguir la longitud del stack
+int	stack_len(t_stack_node *stack)
 {
-	int i;
+	int	i;
+
 	if (!stack)
 		return (0);
 	i = 0;
-	while(stack)
+	while (stack)
 	{
-		i++; //subimos el contador 
+		i++; // subimos el contador
 		stack = stack->next;
 	}
 	return (i);
 }
 
-bool	stack_sorted(t_stack_node *stack) //comprobamos si el stack esta ordenado
+// comprobamos si el stack está ordenado
+bool	stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
@@ -48,17 +53,18 @@ bool	stack_sorted(t_stack_node *stack) //comprobamos si el stack esta ordenado
 	return (1);
 }
 
-t_stack_node	*find_min(t_stack_node *stack) //buscamos el nodo del stack que tenga el menor numero
+// buscamos el nodo del stack que tenga el menor numero
+t_stack_node	*find_min(t_stack_node *stack)
 {
-	long			min; //aqui guardaremos el numero
-	t_stack_node	*min_node; //aqui un nodo que apunte a dicho numero
+	long			min; // aqui guardaremos el numero
+	t_stack_node	*min_node; // nodo que apunta al menor numero
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX; //inicializamos min al maximo valor posible
-	while (stack) //recorremos el bucle
+	min = LONG_MAX; // inicializamos al maximo valor posible
+	while (stack) // recorremos el bucle
 	{
-		if (stack->nbr < min) //si el nbr del nodo actual es menor que el anterior, cambiamos min
+		if (stack->nbr < min) // si el nodo actual es menor
 		{
 			min = stack->nbr;
 			min_node = stack;
@@ -68,15 +74,16 @@ t_stack_node	*find_min(t_stack_node *stack) //buscamos el nodo del stack que ten
 	return (min_node);
 }
 
-t_stack_node	*find_max(t_stack_node *stack) //buscamos el nodo del stack que tenga el menor numero
+// buscamos el nodo del stack que tenga el mayor numero
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	long			max; //aqui guardaremos el numero
-	t_stack_node	*max_node; //aqui un nodo que apunte a dicho numero
+	long			max; // aqui guardaremos el numero
+	t_stack_node	*max_node; // nodo que apunta al mayor numero
 
-	max = LONG_MIN; //inicializamos max al minimo valor posible
-	while (stack) //recorremos el bucle
+	max = LONG_MIN; // inicializamos al minimo valor posible
+	while (stack) // recorremos el bucle
 	{
-		if (stack->nbr > max) //si el nbr del nodo actual es mayor que el anterior, cambiamos max
+		if (stack->nbr > max) // si el nodo actual es mayor
 		{
 			max = stack->nbr;
 			max_node = stack;

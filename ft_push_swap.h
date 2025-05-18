@@ -6,7 +6,7 @@
 /*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 17:49:39 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/11 23:31:19 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:45:34 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <limits.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct s_stack_node
@@ -69,6 +70,6 @@ t_stack_node    *ft_get_cheapest(t_stack_node *a);
 void ft_move_node_to_top(t_stack_node **stack, char stackName);
 
 void    ft_turk(t_stack_node **a, t_stack_node **b);
-void    ft_target_to_top(t_stack_node **stack, t_stack_node *target);
+void	ft_target_to_top(t_stack_node **stack, t_stack_node *top_node, char stackName);
 
 #endif

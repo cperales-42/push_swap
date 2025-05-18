@@ -6,12 +6,14 @@
 /*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 22:29:12 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/11 23:55:07 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/18 09:58:17 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
+// Define a function that sets for the current `a` node,
+// its target node from stack `a`
 void	ft_set_target_b(t_stack_node *a, t_stack_node *b) //Define a function that sets for the current `a` node, its target node from stack `a`
 {
 	t_stack_node	*current_a; //To store the pointer to the current `a` node
@@ -40,10 +42,9 @@ void	ft_set_target_b(t_stack_node *a, t_stack_node *b) //Define a function that 
 	}
 }
 
-void    ft_link_b_to_a(t_stack_node *a, t_stack_node *b)
+void	ft_link_b_to_a(t_stack_node *a, t_stack_node *b)
 {
-    
-    ft_current_index(a);
-    ft_current_index(b);
-    ft_set_target_b(a, b);
+	ft_current_index(a);
+	ft_current_index(b);
+	ft_set_target_b(a, b);
 }

@@ -12,63 +12,78 @@
 
 #include "ft_push_swap.h"
 
-void	ft_target_to_top(t_stack_node **stack, t_stack_node *top_node) //Define a function that moves the required node to the top of the stack
+void	ft_target_to_top(
+	t_stack_node **stack,
+	t_stack_node *top_node,
+	char stack_name)
 {
-    if (*stack == top_node)
-        return ;
-    while (*stack != top_node) //Check if the required node is not already the first node
-    {
-            if (top_node->above_median)
-                ra(stack, false);
-            else
-                rra(stack, false);
-    }
+	while (*stack != top_node)
+	{
+		if (stack_name == 'A')
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
+	}
 }
 
-void    ft_sort_three(t_stack_node **stack)
+void	ft_sort_three(t_stack_node **stack)
 {
-    int a = (*stack)->nbr;
-    int b = (*stack)->next->nbr;
-    int c = (*stack)->next->next->nbr;
+	int	a;
+	int	b;
+	int	c;
 
-    if (a > b && b < c && a < c)
-        sa(stack, false); // 2 1 3 -> 1 2 3
-    else if (a > b && b > c)
-    {
-        sa(stack, false); // 3 2 1 -> 2 3 1
-        rra(stack, false); // -> 1 2 3
-    }
-    else if (a > b && b < c && a > c)
-        ra(stack, false); // 3 1 2 -> 1 2 3
-    else if (a < b && b > c && a < c)
-    {
-        sa(stack, false); // 1 3 2 -> 3 1 2
-        ra(stack, false); // -> 1 2 3
-    }
-    else if (a < b && b > c && a > c)
-        rra(stack, false); // 2 3 1 -> 1 2 3
-    // else ya está ordenado (1 2 3)
+	a = (*stack)->nbr;
+	b = (*stack)->next->nbr;
+	c = (*stack)->next->next->nbr;
+	if (a > b && b < c && a < c)
+		sa(stack, false);
+	else if (a > b && b > c)
+	{
+		sa(stack, false);
+		rra(stack, false);
+	}
+	else if (a > b && b < c && a > c)
+		ra(stack, false);
+	else if (a < b && b > c && a < c)
+	{
+		sa(stack, false);
+		ra(stack, false);
+	}
+	else if (a < b && b > c && a > c)
+		rra(stack, false);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack_node    *a;
-    t_stack_node    *b;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
-    a = NULL;
-    b = NULL;
-    if (argc == 1 ||(argc == 2 && !argv[1][0]))
-        return (1);
-    else if (argc == 2)
-        argv = ft_split(argv[1], ' ');
-    init_stack_a(&a, argv + 1); //el +1 es pq si no sería el nombre del programa
-    if (!stack_sorted(a))
-    {
-        if (stack_len(a) == 2)
-            sa(&a, false);
-        else if (stack_len(a) == 3)
-            ft_sort_three(&a);
-        else
-            ft_turk(&a, &b);
-    }
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (1);
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
+	if (!stack_sorted(a))
+	{
+		if (stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			ft_sort_three(&a);
+		else
+			ft_turk(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
 }
