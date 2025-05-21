@@ -12,8 +12,7 @@
 
 #include "ft_push_swap.h"
 
-// encontrar puntero al ultimo bloque del stack
-t_stack_node	*find_last(t_stack_node *stack)
+t_stack_node	*find_last(t_stack_node *stack) //encontrar puntero al ultimo bloque del stack
 {
 	if (!stack)
 		return (NULL);
@@ -22,8 +21,7 @@ t_stack_node	*find_last(t_stack_node *stack)
 	return (stack);
 }
 
-// conseguir la longitud del stack
-int	stack_len(t_stack_node *stack)
+int	stack_len(t_stack_node *stack) //conseguir la longitud del stack
 {
 	int	i;
 
@@ -38,8 +36,7 @@ int	stack_len(t_stack_node *stack)
 	return (i);
 }
 
-// comprobamos si el stack está ordenado
-bool	stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack_node *stack) //comprobamos si el stack está ordenado
 {
 	if (!stack)
 		return (1);
@@ -53,8 +50,7 @@ bool	stack_sorted(t_stack_node *stack)
 	return (1);
 }
 
-// buscamos el nodo del stack que tenga el menor numero
-t_stack_node	*find_min(t_stack_node *stack)
+t_stack_node	*find_min(t_stack_node *stack) //buscamos el nodo del stack con menor numero
 {
 	long			min; // aqui guardaremos el numero
 	t_stack_node	*min_node; // nodo que apunta al menor numero
@@ -74,8 +70,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 	return (min_node);
 }
 
-// buscamos el nodo del stack que tenga el mayor numero
-t_stack_node	*find_max(t_stack_node *stack)
+t_stack_node	*find_max(t_stack_node *stack) //como find min pero con el mayor
 {
 	long			max; // aqui guardaremos el numero
 	t_stack_node	*max_node; // nodo que apunta al mayor numero
@@ -92,3 +87,4 @@ t_stack_node	*find_max(t_stack_node *stack)
 	}
 	return (max_node);
 }
+

@@ -14,8 +14,8 @@
 
 void    ft_current_index(t_stack_node *stack) //inicializa indices y su valor respecto a la mediana
 {
-    int i;
-    int median;
+    int	i;
+    int	median;
 
     i = 0;
     if (!stack)
@@ -33,11 +33,11 @@ void    ft_current_index(t_stack_node *stack) //inicializa indices y su valor re
     }
 }
 
-void    ft_set_target_a(t_stack_node *a, t_stack_node *b) //linkea a a b
+void	ft_set_target_a(t_stack_node *a, t_stack_node *b) //linkea a a b
 {
-    t_stack_node *current_b; //usaremos esta variable para poder recorrer b en un doble bucle sin que el b de verdad avance
-    t_stack_node *target_node; //aqui guardaremos el nodo objetivo
-    long        best_match; //aqui el valor del mas cercano hasta ahora
+    t_stack_node	*current_b; //usaremos esta variable para poder recorrer b en un doble bucle sin que el b de verdad avance
+    t_stack_node	*target_node; //aqui guardaremos el nodo objetivo
+    long			best_match; //aqui el valor del mas cercano hasta ahora
 
     while (a)
     {
@@ -60,10 +60,10 @@ void    ft_set_target_a(t_stack_node *a, t_stack_node *b) //linkea a a b
     }
 }
 
-static void ft_cost_analysis_a(t_stack_node *a, t_stack_node *b) //consigue el push cost del stack a
+static void	ft_cost_analysis_a(t_stack_node *a, t_stack_node *b) //consigue el push cost del stack a
 {
-    int len_a;
-    int len_b;
+    int	len_a;
+    int	len_b;
 
     len_a = stack_len(a);
     len_b = stack_len(b);
@@ -80,10 +80,10 @@ static void ft_cost_analysis_a(t_stack_node *a, t_stack_node *b) //consigue el p
     }
 }
 
-void    ft_set_cheapest(t_stack_node *stack) //encuentra el push mas barato
+void	ft_set_cheapest(t_stack_node *stack) //encuentra el push mas barato
 {
-    long            cheapest; //valor push_cost mas barato
-    t_stack_node    *cheapest_node; //nodo mas barato
+    long			cheapest; //valor push_cost mas barato
+    t_stack_node	*cheapest_node; //nodo mas barato
 
     if (!stack)
         return ;
@@ -100,7 +100,7 @@ void    ft_set_cheapest(t_stack_node *stack) //encuentra el push mas barato
     cheapest_node->cheapest = true;
 }
 
-void    ft_link_a_to_b(t_stack_node *a, t_stack_node *b) //se asegura de cumplir todo para que el push sea el mas barato posible
+void	ft_link_a_to_b(t_stack_node *a, t_stack_node *b) //se asegura de cumplir todo para que el push sea el mas barato posible
 {
     ft_current_index(a);
     ft_current_index(b);

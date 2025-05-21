@@ -12,40 +12,40 @@
 
 #include "../ft_push_swap.h"
 
-static void push(t_stack_node **src, t_stack_node **dst) //pushea de un stack a otro
+static void	push(t_stack_node **src, t_stack_node **dst)
 {
-    t_stack_node    *push_node; //guarda el puntero al nodo que vamos a pushear
+	t_stack_node	*push_node;
 
-    if (!*src)
-        return ;
-    push_node = *src; //asignamos el top node a la variable
-    *src = (*src)->next; //pasamos el puntero del stack al siguiente nodo, que ahora sera el top node
-    if (*src)
-        (*src)->prev = NULL; //como ahora es el top node el previo apunta a null
-    push_node->prev = NULL; //nos aseguramos de que el nodo que vamos a pushear no este enlazado a nada
-    if (!*dst) //comprobamos si el otro stack esta vacio
-    {
-        *dst = push_node; //si esta vacio metemos el nodo que queremos pushear directamente
-        push_node->next = NULL; //lo enlazamos a null ya que no hay mas elementos
-    }
-    else 
-    {
-        push_node->next = *dst; //asignamos el nodo que queremos pushear por encima del top node actual
-        push_node->next->prev = push_node; //lista doblemente enlazada asi que enlazamos el antiguo top del nuevo stack al nuevo top
-        *dst = push_node; //ahora que hemos movido el anterior top metemos el nuevo
-    }
+	if (!*src)
+		return ;
+	push_node = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	push_node->prev = NULL;
+	if (!*dst)
+	{
+		*dst = push_node;
+		push_node->next = NULL;
+	}
+	else
+	{
+		push_node->next = *dst;
+		push_node->next->prev = push_node;
+		*dst = push_node;
+	}
 }
 
-void pa(t_stack_node **a, t_stack_node **b, bool print) //push a
+void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
-    push(b, a);
-    if (!print)
-        ft_printf("pa\n");
+	push(b, a);
+	if (!print)
+		ft_printf("pa\n");
 }
 
-void pb(t_stack_node **b, t_stack_node **a, bool print) // push b
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
-    push(a, b);
-    if (!print)
-        ft_printf("pb\n");
+	push(a, b);
+	if (!print)
+		ft_printf("pb\n");
 }

@@ -12,55 +12,54 @@
 
 #include "ft_push_swap.h"
 
-int ft_syntax_error(char *str)
+int	ft_syntax_error(char *str)
 {
-    if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9'))) //si el primer caracter no es un signo ni un digito dar error
-        return (1);
-    if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9')) //si el primer caracter es un signo pero el segundo no es un digito dar error
-        return (1);
-    while (*++str) //si no hay errores hasta aqui, vamos aumentando de caracter en caracter para ver si alguno no es un digito
-    {
-        if (!(*str >= '0' && *str <= '9')) //si no es un digito dar error
-            return (1);
-    }
-    return (0);
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+		return (1);
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
+		return (1);
+	while (*++str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (1);
+	}
+	return (0);
 }
 
-int ft_duplicate_error(t_stack_node *a, int n)
+int	ft_duplicate_error(t_stack_node *a, int n)
 {
-    if (!a)
-        return (0);
-    while (a) //mientras exista
-    {
-        if (a->nbr == n) //si el numero del stack es n dar error
-            return (1);
-        a = a->next; //comprobar el siguiente
-    }
-    return (0);
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->nbr == n)
+			return (1);
+		a = a->next;
+	}
+	return (0);
 }
 
-void    free_stack(t_stack_node **stack)
+void	free_stack(t_stack_node **stack)
 {
-    t_stack_node    *tmp; //temporal para guardar los enlaces antes de liberar
-    t_stack_node    *current;
+	t_stack_node	*tmp;
+	t_stack_node	*current;
 
-    if (!stack)
-        return ;
-
-    current = *stack;
-    while (current) //si hay un nodo en el stack
-    {
-        tmp = current->next; //asignamos el puntero del siguiente nodo a tmp
-        current->nbr = 0; //asignamos el numero a 0 para evitar posibles memory leaks
-        free(current); // liberamos el nodo
-        current = tmp; // ahora tmp es el primer nodo (conserva enlaces pero no el numero)
-    }
-    *stack = NULL;
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
 }
 
-void    free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a)
 {
-    free_stack(a);
-    ft_printf("Error\n");
-    exit(1);
+	free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
 }
