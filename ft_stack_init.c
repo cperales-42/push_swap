@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 23:46:34 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/18 09:55:21 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/25 04:04:00 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static long	ft_atol(const char *s)
 
 	result = 0;
 	sign = 1;
-	while (*s == ' ' || *s == '\t' || *s == '\n' || \
-		*s == '\r' || *s == '\f' || *s == '\v')
+	while (*s == ' ' || *s == '\t' || *s == '\n' || *s == '\r' || *s == '\f'
+		|| *s == '\v')
 		s++;
 	if (*s == '-' || *s == '+')
 	{
@@ -37,28 +37,27 @@ static long	ft_atol(const char *s)
 // añadimos un nodo al stack en el ultimo valor de la lista
 static void	ft_append_node(t_stack_node **stack, int n)
 {
-	t_stack_node	*node; // puntero al nuevo nodo con valor 'n'
-	t_stack_node	*last_node; // último nodo del stack
+	t_stack_node	*node;
+	t_stack_node	*last_node;
 
 	if (!stack)
 		return ;
-	node = malloc(sizeof(t_stack_node)); // asignamos memoria
+	node = malloc(sizeof(t_stack_node));
 	if (!node)
 		return ;
-	node->next = NULL; // último nodo -> siguiente será NULL
-	node->nbr = n; // le damos el valor n
-	node->cheapest = 0; // inicializamos
-
-	if (!(*stack)) // si el stack está vacío o apunta a NULL
+	node->next = NULL;
+	node->nbr = n;
+	node->cheapest = 0;
+	if (!(*stack))
 	{
-		*stack = node; // lo asignamos como primer nodo
-		node->prev = NULL; // también es el primero
+		*stack = node;
+		node->prev = NULL;
 	}
 	else
 	{
 		last_node = find_last(*stack);
-		last_node->next = node; // el anterior apunta al nuevo
-		node->prev = last_node; // el nuevo apunta al anterior
+		last_node->next = node;
+		node->prev = last_node;
 	}
 }
 
@@ -73,7 +72,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (ft_syntax_error(argv[i]))
 			free_errors(a);
 		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN) // comprobamos overflow
+		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (ft_duplicate_error(*a, (int)n))
 			free_errors(a);
@@ -86,7 +85,7 @@ t_stack_node	*ft_get_cheapest(t_stack_node *a)
 {
 	while (a)
 	{
-		if (a->cheapest) // si es el más barato lo devolvemos
+		if (a->cheapest)
 			return (a);
 		a = a->next;
 	}
@@ -99,17 +98,17 @@ void	ft_move_node_to_top(t_stack_node **stack, char stackName)
 
 	if (!*stack)
 		return ;
-	cheapest = ft_get_cheapest(*stack); // encuentra el más barato
-	while (*stack != cheapest) // rotamos hasta que esté en la cima
+	cheapest = ft_get_cheapest(*stack);
+	while (*stack != cheapest)
 	{
-		if (cheapest->above_median) // si está por encima de la mediana
+		if (cheapest->above_median)
 		{
 			if (stackName == 'A')
 				ra(stack, false);
 			else
 				rb(stack, false);
 		}
-		else // si está por debajo, reverse rotate
+		else
 		{
 			if (stackName == 'A')
 				rra(stack, false);

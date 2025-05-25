@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:18:59 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/18 09:59:41 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/25 03:10:40 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
 static void	swap(t_stack_node **head)
+		// cambia el primer y el segundo elemento de un stack
 {
 	if (!*head || !(*head)->next)
 		return ;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:50:56 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/18 09:59:56 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/25 03:10:08 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
-static void	rotate(t_stack_node **stack) //manda el primer elemento al fondo
+static void	rotate(t_stack_node **stack) // manda el primer elemento al fondo
 {
 	t_stack_node	*last_node;
 

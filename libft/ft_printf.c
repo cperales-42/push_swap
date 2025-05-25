@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:29:25 by cperales          #+#    #+#             */
-/*   Updated: 2024/12/11 13:29:33 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/25 04:09:49 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 void	ft_putchar_pf(char c, int *counter)
 {
 	write(1, &c, 1);

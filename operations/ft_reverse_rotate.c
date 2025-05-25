@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cperales <cperales@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 19:10:19 by cperales          #+#    #+#             */
-/*   Updated: 2025/05/18 10:00:07 by cperales         ###   ########.fr       */
+/*   Updated: 2025/05/25 03:09:18 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_push_swap.h"
 
 static void	reverse_rotate(t_stack_node **stack)
+// manda el ultimo elemento arriba
 {
 	t_stack_node	*last_node;
 

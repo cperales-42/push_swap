@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diurno <diurno@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cperales <cperales@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:31:28 by cperales          #+#    #+#             */
-/*   Updated: 2025/01/17 10:04:54 by diurno           ###   ########.fr       */
+/*   Updated: 2025/05/25 04:09:54 by cperales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	ft_putstr_pf(char *str, int *counter)
 {
